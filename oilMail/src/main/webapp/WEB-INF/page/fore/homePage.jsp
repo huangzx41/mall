@@ -4,17 +4,17 @@
     <script src="${pageContext.request.contextPath}/res/js/jquery-color-2.1.2.js"></script>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_home.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_home.css" rel="stylesheet"/>
-    <title>天猫tmall.com--理想生活上天猫</title>
+    <title>omall--给你专业的服务</title>
 </head>
 <body>
 <nav>
     <%@ include file="include/navigator.jsp" %>
     <div class="header">
-        <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/HomeLogoA.png">
+        <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/HomeLogoA.jpg">
         <div class="mallSearch">
             <form action="${pageContext.request.contextPath}/product" method="get">
                 <div class="mallSearch-input">
-                    <input class="header_search_input" type="text" name="product_name" placeholder="搜索 天猫 商品/品牌/店铺"
+                    <input class="header_search_input" type="text" name="product_name" placeholder="搜索 "
                            maxlength="50">
                     <input class="header_search_button" type="submit" value="搜索">
                 </div>
@@ -31,7 +31,7 @@
             </ul>
         </div>
     </div>
-    <div class="home_nav">
+   <%--  <div class="home_nav">
         <div class="home_nav_title">
             <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/header_nav_title.png">
             <span>商品分类</span>
@@ -48,7 +48,7 @@
         <a href="https://meilihui.tmall.com/" target="_blank">魅力惠</a>
         <a href="https://www.alitrip.com/" target="_blank">飞猪旅行</a>
         <a href="https://suning.tmall.com/" target="_blank">苏宁易购</a>
-    </div>
+    </div> --%>
 </nav>
 <div class="banner">
     <c:forEach var="product" items="${requestScope.specialProductList}" varStatus="i">
@@ -88,9 +88,9 @@
                         <span></span>
                         <p>${category.category_name}</p>
                     </div>
-                    <a href="${pageContext.request.contextPath}/product?category_id=${category.category_id}"><img
+                   <%--  <a href="${pageContext.request.contextPath}/product?category_id=${category.category_id}"><img
                             class="banner_goods_show"
-                            src="res/images/fore/WebsiteImage/show/${category.category_id}.jpg"></a>
+                            src="res/images/fore/WebsiteImage/show/${category.category_id}.jpg"></a> --%>
                     <div class="banner_goods_items">
                         <c:forEach items="${category.productList}" var="product" varStatus="i">
                             <c:if test="${i.index<8}">

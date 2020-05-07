@@ -18,7 +18,7 @@
         <p id="container_login">
             <c:choose>
                 <c:when test="${requestScope.user.user_name==null}">
-                    <em>喵，欢迎来天猫</em>
+                    <em>喵，欢迎来omail</em>
                     <a href="${pageContext.request.contextPath}/login">请登录</a>
                     <a href="${pageContext.request.contextPath}/register">免费注册</a>
                 </c:when>
@@ -33,7 +33,7 @@
         <ul class="quick_li">
             <li class="quick_li_MyTaobao">
                 <div class="sn_menu">
-                    <a href="${pageContext.request.contextPath}/userDetails">我的淘宝<b></b></a>
+                    <a href="${pageContext.request.contextPath}/userDetails">我的订单<b></b></a>
                     <div class="quick_menu">
                         <a href="${pageContext.request.contextPath}/order/0/10">已买到的宝贝</a>
                         <a href="#">已卖出的宝贝</a>
@@ -44,7 +44,7 @@
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/buyCar.png">
                 <a href="${pageContext.request.contextPath}/cart">购物车</a>
             </li>
-            <li class="quick_li_menuItem">
+           <%--  <li class="quick_li_menuItem">
                 <div class="sn_menu">
                     <a href="#">收藏夹<b></b></a>
                     <div class="quick_menu">
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --%>
         </ul>
     </div>
 </div>

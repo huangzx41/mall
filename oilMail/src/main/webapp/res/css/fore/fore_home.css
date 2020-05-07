@@ -9,9 +9,10 @@ nav {
 }
 
 .header > img {
-    float: left;
-    width: 240px;
-    height: 130px;
+   float: left;
+   width: 200px;
+   height: 130px;
+   margin-left: 20px;
 }
 
 .header > .mallSearch {
