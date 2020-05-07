@@ -29,7 +29,7 @@
     <div class="header">
         <div id="mallLogo">
             <a href="${pageContext.request.contextPath}"><img
-                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA.png"><span
+                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA1.png"><span
                     class="span_tmallRegister">用户注册</span></a>
         </div>
     </div>

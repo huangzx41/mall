@@ -4,19 +4,19 @@
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_login.js"></script>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_productDetails.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_productDetails.css" rel="stylesheet">
-    <title>${requestScope.product.product_name}-tmall.com天猫</title>
+    <title>${requestScope.product.product_name}-omall</title>
 </head>
 <body>
 <nav>
     <%@ include file="include/navigator.jsp" %>
     <div class="header">
         <a href="${pageContext.request.contextPath}"><img
-                src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoB.png"></a>
-        <span class="shopNameHeader">贤趣${requestScope.product.product_category.category_name}官方旗舰店</span>
+                src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoB1.png"></a>
+        <span class="shopNameHeader">${requestScope.product.product_category.category_name}</span>
         <input id="tid" type="hidden" value="${requestScope.product.product_category.category_id}"/>
         <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/detailsHeaderA.png"
              class="shopAssessHeader">
-        <div class="shopSearchHeader">
+        <%-- <div class="shopSearchHeader">
             <form action="${pageContext.request.contextPath}/product" method="get">
                 <div class="shopSearchInput">
                     <input type="text" class="searchInput" name="product_name" placeholder="搜索 天猫 商品/品牌/店铺"
@@ -32,7 +32,7 @@
                     </li>
                 </c:forEach>
             </ul>
-        </div>
+        </div> --%>
     </div>
 </nav>
 <div class="loginModel">
@@ -40,13 +40,13 @@
         <div class="loginDivHeader">
             <a href="javascript:void(0)" class="closeLoginDiv"></a>
         </div>
-        <div class="loginSwitch" id="loginSwitch"></div>
+         <%--  <div class="loginSwitch" id="loginSwitch"></div>
         <div class="loginMessage">
             <div class="loginMessageMain">
                 <div class="poptip-arrow"><em></em><span></span></div>
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/scan-safe.png"/><span>扫码登录更安全</span>
             </div>
-        </div>
+        </div> --%>
         <div class="pwdLogin">
             <span class="loginTitle">密码登录</span>
             <form method="post" class="loginForm">
@@ -66,14 +66,14 @@
             </form>
             <div class="loginLinks">
                 <a href="#">忘记密码</a>
-                <a href="#">忘记会员名</a>
+                <!-- <a href="#">忘记会员名</a> -->
                 <a href="${pageContext.request.contextPath}/register" target="_blank">免费注册</a>
             </div>
             <div class="error_message">
                 <p id="error_message_p"></p>
             </div>
         </div>
-        <div class="qrcodeLogin">
+      <%--   <div class="qrcodeLogin">
             <span class="loginTitle">手机扫码，安全登录</span>
             <div class="qrcodeMain">
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/login_qrcode.png"
@@ -90,7 +90,7 @@
                 <a href="JavaScript:void(0)" id="pwdLogin">密码登录</a>
                 <a href="${pageContext.request.contextPath}/register" target="_blank">免费注册</a>
             </div>
-        </div>
+        </div> --%>
     </div>
 </div>
 <div class="shopImg">

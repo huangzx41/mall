@@ -318,7 +318,7 @@ nav {
 }
 
 .banner_goods_type > .banner_goods_items {
-    height: 618px;
+   /*  height: 618px; */
     overflow: hidden;
 }
 
