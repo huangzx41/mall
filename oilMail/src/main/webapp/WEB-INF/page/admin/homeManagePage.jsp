@@ -216,10 +216,10 @@
             var date = new Date();
             date.setDate(date.getDate());
             var formatDate = FormatDate(date);
-            $("#input_endDate").attr("max", formatDate).attr("min", "2018-01-01").val(formatDate);
+            $("#input_endDate").val(formatDate);
             date.setDate(date.getDate() - 6);
             formatDate = FormatDate(date);
-            $("#input_beginDate").val(formatDate).attr("min", formatDate).attr("max", formatDate);
+            $("#input_beginDate").val(formatDate);
             /******
              * event
              ******/
@@ -228,11 +228,17 @@
                 getChartData($("#input_beginDate").val(), $("#input_endDate").val(), null);
             });
             //更改日期时
-            $(".chartDateInput").change(function () {
+            $("#input_endDate").change(function () {
                 var date = new Date($("#input_endDate").val());
                 date.setDate(date.getDate() - 6);
                 var formatDate = FormatDate(date);
-                $("#input_beginDate").val(formatDate).attr("min", formatDate).attr("max", formatDate);
+                $("#input_beginDate").val(formatDate);
+            });
+            $("#input_beginDate").change(function () {
+                var date = new Date($("#input_beginDate").val());
+                date.setDate(date.getDate() + 6);
+                var formatDate = FormatDate(date);
+                $("#input_endDate").val(formatDate);
             });
             //点击查询近一周数据按钮时
             $("span.chartDateBtn").click(function () {

@@ -11,7 +11,7 @@
     <div class="header">
         <div id="mallLogo">
             <a href="${pageContext.request.contextPath}"><img
-                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA.png"></a>
+                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA1.png"></a>
         </div>
         <div class="shopSearchHeader">
             <form action="${pageContext.request.contextPath}/product" method="get">
@@ -105,7 +105,7 @@
                         <form action="${pageContext.request.contextPath}/product" method="get">
                             <input title="查询产品" type="text" class="errorInput" name="product_name"
                                    value="${requestScope.searchValue}">
-                            <input type="submit" value="去淘宝搜索" class="errorBtn">
+                            <input type="submit" value="去搜索" class="errorBtn">
                         </form>
                     </li>
                 </ol>

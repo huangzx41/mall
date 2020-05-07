@@ -59,7 +59,7 @@
 </div>
 <div class="banner_main">
     <ul class="banner_nav">
-        <c:forEach items="${requestScope.categoryList}" var="category">
+       <%--  <c:forEach items="${requestScope.categoryList}" var="category">
             <li data-toggle="${category.category_id}" data-status="">
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/small/${category.category_id}.png">
                 <a href="${pageContext.request.contextPath}/product?category_id=${category.category_id}">${category.category_name}</a>
@@ -67,7 +67,7 @@
 
                 </div>
             </li>
-        </c:forEach>
+        </c:forEach> --%>
     </ul>
     <ul class="banner_slider">
         <li id="slider_1" style="background: rgba(255,255,255,0.4)"></li>
