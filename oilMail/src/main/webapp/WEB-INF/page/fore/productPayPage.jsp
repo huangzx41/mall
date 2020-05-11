@@ -82,7 +82,7 @@
     <div class="header">
         <div id="mallLogo">
             <a href="${pageContext.request.contextPath}"><img
-                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA.png"></a>
+                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA1.png"></a>
         </div>
     </div>
 </nav>
@@ -91,22 +91,22 @@
         <c:choose>
             <c:when test="${fn:length(requestScope.productOrder.productOrderItemList)==1}">
                 <div class="order_name">
-                    <span>天猫Tmall -- ${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_name}</span>
+                    <span>oilmall -- ${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_name}</span>
                 </div>
                 <div class="order_shop_name">
-                    <span>卖家昵称：天猫${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_category.category_name}旗舰店</span>
+                    <span>卖家昵称：${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_category.category_name}旗舰店</span>
                 </div>
             </c:when>
             <c:otherwise>
                 <div class="order_name">
-                    <span>天猫Tmall -- 合并订单：${fn:length(requestScope.productOrder.productOrderItemList)}笔</span>
+                    <span>oilmall -- 合并订单：${fn:length(requestScope.productOrder.productOrderItemList)}笔</span>
                 </div>
             </c:otherwise>
         </c:choose>
         <div class="order_price">
             <span class="price_value">${requestScope.orderTotalPrice}</span>
             元
-            <span class="price_unit">（不会真实付款）</span>
+            <span class="price_unit"></span>
         </div>
     </div>
     <div class="order_pay_div">
@@ -135,7 +135,7 @@
         </script>
         <a class="order_pay_btn" href="javascript:void(0)" onclick="pay()">确认支付</a>
     </div>
-    <div class="order_reward_div">
+   <%--  <div class="order_reward_div">
         <p class="order_reward_header">作者的话</p>
         <br/>
         <p>首先感谢您看到这里</p>
@@ -164,7 +164,7 @@
             <p class="order_reward_name" id="reward_weixin_name">微信</p>
             <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/weixinpay.png">
         </div>
-    </div>
+    </div> --%>
 </div>
 <%@include file="include/footer_two.jsp" %>
 <%@include file="include/footer.jsp" %>

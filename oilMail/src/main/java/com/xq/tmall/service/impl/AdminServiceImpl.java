@@ -1,55 +1,58 @@
 package com.xq.tmall.service.impl;
 
-import com.xq.tmall.dao.AdminMapper;
-import com.xq.tmall.entity.Admin;
-import com.xq.tmall.service.AdminService;
-import com.xq.tmall.util.PageUtil;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
-import java.util.List;
+import com.xq.tmall.dao.AdminMapper;
+import com.xq.tmall.entity.Admin;
+import com.xq.tmall.service.AdminService;
+import com.xq.tmall.util.PageUtil;
 
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
 
-    private AdminMapper adminMapper;
-    @Resource(name = "adminMapper")
-    public void setAdminMapper(AdminMapper adminMapper) {
-        this.adminMapper = adminMapper;
-    }
+	private AdminMapper adminMapper;
 
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    @Override
-    public boolean add(Admin admin) {
-        return adminMapper.insertOne(admin)>0;
-    }
+	@Resource(name = "adminMapper")
+	public void setAdminMapper(AdminMapper adminMapper) {
+		this.adminMapper = adminMapper;
+	}
 
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    @Override
-    public boolean update(Admin admin) {
-        return adminMapper.updateOne(admin)>0;
-    }
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Override
+	public boolean add(Admin admin) {
+		return adminMapper.insertOne(admin) > 0;
+	}
 
-    @Override
-    public List<Admin> getList(String admin_name, PageUtil pageUtil) {
-        return adminMapper.select(admin_name,pageUtil);
-    }
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Override
+	public boolean update(Admin admin) {
+		return adminMapper.updateOne(admin) > 0;
+	}
 
-    @Override
-    public Admin get(String admin_name,Integer admin_id) {
-        return adminMapper.selectOne(admin_name,admin_id);
-    }
+	@Override
+	public List<Admin> getList(String admin_name, PageUtil pageUtil) {
+		return adminMapper.select(admin_name, pageUtil);
+	}
 
-    @Override
-    public Admin login(String admin_name, String admin_password) {
-    	Admin admin= adminMapper.selectByLogin(admin_name,admin_password);
-    	return admin;
-    }
+	@Override
+	public Admin get(String admin_name, Integer admin_id) {
+		return adminMapper.selectOne(admin_name, admin_id);
+	}
 
-    @Override
-    public Integer getTotal(String admin_name) {
-        return adminMapper.selectTotal(admin_name);
-    }
+	@Override
+	public Admin login(String admin_name) {
+		Admin admin = adminMapper.selectByLogin(admin_name);
+		return admin;
+	}
+
+	@Override
+	public Integer getTotal(String admin_name) {
+		return adminMapper.selectTotal(admin_name);
+	}
 }

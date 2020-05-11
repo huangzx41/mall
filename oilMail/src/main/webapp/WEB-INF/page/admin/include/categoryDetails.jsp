@@ -3,8 +3,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
     <script>
         $(function () {
+        	 $('a').click(function () {
+        		 $(this).parent().remove();
+             })
             if ($("#details_category_id").val() === "") {
                 /******
                  * event
@@ -70,11 +75,21 @@
                     if (!yn) {
                         return;
                     }
-
+                    var items=[];
+                    $(".has-feedback input").each(function(i,val){//val为数组中当前的值，index为当前值的下表，arr为原数组
+                    	var property={};
+                    	property.property_name=$(val).val();
+                    	property.property_category_id="${requestScope.category.category_id}";
+                    	property.property_id=$(val).attr("data-pvid");
+                    	items.push(property);
+                     });
                     var dataList = {
+                    	"category_id":"${requestScope.category.category_id}",
                         "category_name": category_name,
-                        "category_image_src": category_image_src
+                        "category_image_src": category_image_src,
+                        "propertyList":items
                     };
+                    console.log(dataList);
                     doAction(dataList, "admin/category/" + category_id, "PUT");
                 });
             }
@@ -162,7 +177,9 @@
             $.ajax({
                 url: url,
                 type: type,
-                data: dataList,
+                data: JSON.stringify(dataList),
+                dataType: "json",
+                contentType: 'application/json',
                 traditional: true,
                 success: function (data) {
                     $("#btn_category_save").attr("disabled", false).val("保存");
@@ -185,6 +202,14 @@
 
                 }
             });
+        }
+        function addItems(){
+        	var item='<div class="has-feedback" style="width: 330px">'+
+                       '<input class="form-control"  id="input_category_property" type="text" maxlength="50" value="" data-pvid=""/>'+
+                      ' <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a> '+       
+                       '<div class="br"></div>'+
+                      '</div>';
+           $("#appendBody").append(item);            
         }
     </script>
     <style rel="stylesheet">
@@ -238,17 +263,39 @@
     <span class="frm_error_msg" id="text_category_image_details_msg"></span>
 </div>
 <div class="details_div details_div_last">
-    <span class="details_title text_info">属性列表</span>
+    <span class="details_title text_info">属性列表
+    <button onclick="addItems()" style="margin-left: 245px;" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+     <div class="br"></div>
+     <!-- <div class="has-feedback">
+	    <label class="text-info" for="addressId">输入地址</label>
+	    <input class="form-control"id="addressId" name="address">
+	    删除按钮
+	    <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>
+    </div> -->
+
     <c:if test="${fn:length(requestScope.category.propertyList)!=0}">
+    <div id="appendBody">
         <c:forEach items="${requestScope.category.propertyList}" var="property" varStatus="status">
-                    <input class="frm_input" id="input_category_property_${property.property_id}" type="text"
+                 <div class="has-feedback" style="width: 330px">
+                    <input class="form-control"  id="input_category_property_${property.property_id}" type="text"
                            maxlength="50" value="${property.property_name}"
                            data-pvid="${property.property_id}"/>
-                 <c:if test="${status.index % 2 != 0}">          
+                  <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>          
                     <div class="br"></div>
-                 </c:if >  
+                 </div>
         </c:forEach>
     </c:if>
+     <c:if test="${fn:length(requestScope.category.propertyList)==0}">
+    <div id="appendBody">
+          <div class="has-feedback" style="width: 330px">
+             <input class="form-control"  id="input_category_property" type="text"
+                    maxlength="50" value=""
+                    data-pvid=""/>
+           <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>          
+             <div class="br"></div>
+          </div>
+    </c:if>
+    </div>
 </div>
 <div class="details_tools_div">
     <input class="frm_btn" id="btn_category_save" type="button" value="保存"/>

@@ -47,9 +47,9 @@
         </where>
     </select>
     <select id="selectByLogin" resultType="admin">
-        SELECT admin_id FROM admin
+        SELECT admin_id,admin_password FROM admin
         <where>
-            admin_name = #{admin_name} and admin_password = #{admin_password}
+            admin_name = #{admin_name} 
         </where>
     </select>
     <select id="selectTotal" resultType="int">

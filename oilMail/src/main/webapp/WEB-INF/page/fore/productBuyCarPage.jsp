@@ -44,7 +44,7 @@
     <div class="header">
         <div id="mallLogo">
             <a href="${pageContext.request.contextPath}"><img
-                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA.png"><span
+                    src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoA1.png"><span
                     class="span_tmallBuyCar">购物车</span></a>
         </div>
         <div class="shopSearchHeader">
@@ -89,12 +89,12 @@
                         </a>
                     </li>
                 </ul>
-                <div class="cart-sum">
+               <!--  <div class="cart-sum">
                     <span class="pay-text">已选商品（不含运费）</span>
                     <strong class="price"><em id="J_SmallTotal"><span
                             class="total-symbol">&nbsp;</span>0.00</em></strong>
                     <a id="J_SmallSubmit" class="submit-btn submit-btn-disabled">结&nbsp;算</a>
-                </div>
+                </div> -->
                 <div class="wrap-line">
                     <div class="floater"></div>
                 </div>
@@ -153,7 +153,7 @@
                 </tbody>
             </table>
             <div id="J_FloatBar">
-                <div id="J_SelectAll2">
+              <!--   <div id="J_SelectAll2">
                     <div class="cart_checkbox">
                         <input class="J_checkboxShop" id="J_SelectAllCbx2" type="checkbox" value="true"/>
                         <label for="J_SelectAllCbx2" title="勾选购物车内所有商品"></label>
@@ -162,7 +162,7 @@
                 </div>
                 <div class="operations">
                     <a href="javascript:void(0)" onclick="remove()">删除</a>
-                </div>
+                </div> -->
                 <div class="float-bar-right">
                     <div id="J_ShowSelectedItems">
                         <span class="txt">已选商品</span>

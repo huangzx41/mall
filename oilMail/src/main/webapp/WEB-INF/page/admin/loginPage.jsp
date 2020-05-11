@@ -29,7 +29,7 @@
         </ul>
     </div>
     <div id="div_main">
-        <div id="div_head"><p>tmall <span>管理后台</span></p></div>
+        <div id="div_head"><p>oilmall <span>管理后台</span></p></div>
         <div id="div_content">
             <img id="img_profile_picture"
                  src="${pageContext.request.contextPath}/res/images/admin/loginPage/default_profile_picture-128x128.png"

@@ -3,7 +3,7 @@
 <head>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_productBuy.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_productBuyPage.css" rel="stylesheet"/>
-    <title>确认订单 - Tmall.com天猫-理想生活上天猫</title>
+    <title>确认订单 - omall.com</title>
     <script>
         $(function () {
             $("span.address_province").text($("#select_order_address_province").find("option:selected").text());
@@ -31,7 +31,7 @@
                 <div class="step-no_first"></div>
             </li>
             <li class="step-no">
-                <div class="step-name">付款到支付宝</div>
+                <div class="step-name">付款</div>
                 <div class="step-no">2</div>
             </li>
             <li class="step-no">

@@ -22,7 +22,7 @@
         INSERT property (property_id,property_name,property_category_id)
         VALUES
         <foreach collection="property_list" index="index" item="property" separator=",">
-            (null,
+            (#{property.property_id},
             #{property.property_name},
             #{property.property_category_id})
         </foreach>
@@ -45,6 +45,14 @@
             </foreach>
         </where>
     </delete>
+     <delete id="deleteByCategoryId" >
+        DELETE FROM property
+        <where>
+           property_category_id=#{categoryId}
+        </where>
+    </delete>
+    
+    
     <select id="select" resultMap="propertyMap">
         SELECT property_id,property_name,property_category_id FROM property
         <if test="property != null">
