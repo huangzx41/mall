@@ -12,7 +12,7 @@ public class Property {
 	private String property_name/* 属性名称 */;
 	private Category property_category/* 属性对应分类 */;
 	private List<PropertyValue> propertyValueList/* 属性值集合 */;
-	private String property_category_id;
+	private Integer property_category_id;
 
 	public Property() {
 	}
@@ -31,11 +31,11 @@ public class Property {
 		this.propertyValueList = propertyValueList;
 	}
 
-	public String getProperty_category_id() {
+	public Integer getProperty_category_id() {
 		return property_category_id;
 	}
 
-	public void setProperty_category_id(String property_category_id) {
+	public void setProperty_category_id(Integer property_category_id) {
 		this.property_category_id = property_category_id;
 	}
 

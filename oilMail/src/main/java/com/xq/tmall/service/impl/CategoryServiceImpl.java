@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.xq.tmall.dao.CategoryMapper;
 import com.xq.tmall.entity.Category;
+import com.xq.tmall.entity.Property;
 import com.xq.tmall.service.CategoryService;
 import com.xq.tmall.service.PropertyService;
 import com.xq.tmall.util.PageUtil;
@@ -30,9 +32,16 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
-	public boolean add(Category category) {
-		boolean p = propertyService.addList(category.getPropertyList());
-		return categoryMapper.insertOne(category) > 0 && p;
+	public Integer add(Category category) {
+		categoryMapper.insertOne(category);
+		List<Property> propertyList = category.getPropertyList();
+		propertyList.forEach(a -> {
+			if (StringUtils.isNoneBlank(a.getProperty_name())) {
+				a.setProperty_category_id(category.getCategory_id());
+				propertyService.add(a);
+			}
+		});
+		return category.getCategory_id();
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)

@@ -84,24 +84,16 @@ public class CategoryController extends BaseController {
 	// 添加产品类型信息-ajax
 	@ResponseBody
 	@RequestMapping(value = "admin/category", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
-	public String addCategory(Category category) {
+	public String addCategory(@RequestBody Category category) {
 		JSONObject jsonObject = new JSONObject();
 		logger.info("整合分类信息");
 		String category_image_src = category.getCategory_image_src();
 		category.setCategory_image_src(category_image_src.substring(category_image_src.lastIndexOf("/") + 1));
 		logger.info("添加分类信息");
-		boolean yn = categoryService.add(category);
-		if (yn) {
-			int category_id = lastIDService.selectLastID();
-			logger.info("添加成功！,新增分类的ID值为：{}", category_id);
-			jsonObject.put("success", true);
-			jsonObject.put("category_id", category_id);
-		} else {
-			jsonObject.put("success", false);
-			logger.warn("添加失败！事务回滚");
-			throw new RuntimeException();
-		}
-
+		Integer category_id = categoryService.add(category);
+		logger.info("添加成功！,新增分类的ID值为：{}", category_id);
+		jsonObject.put("success", true);
+		jsonObject.put("category_id", category_id);
 		return jsonObject.toJSONString();
 	}
 

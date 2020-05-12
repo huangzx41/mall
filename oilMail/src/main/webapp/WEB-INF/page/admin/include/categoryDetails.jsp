@@ -36,11 +36,21 @@
                     if (!yn) {
                         return;
                     }
-
+                    var items=[];
+                    $(".has-feedback input").each(function(i,val){//val为数组中当前的值，index为当前值的下表，arr为原数组
+                    	var property={};
+                    	property.property_name=$(val).val();
+                    	property.property_category_id="${requestScope.category.category_id}";
+                    	property.property_id=$(val).attr("data-pvid");
+                    	items.push(property);
+                     });
                     var dataList = {
-                        "category_name": category_name,
-                        "category_image_src": category_image_src
-                    };
+                        	"category_id":"${requestScope.category.category_id}",
+                            "category_name": category_name,
+                            "category_image_src": category_image_src,
+                            "propertyList":items
+                     };
+                    //console.log(dataList);
                     doAction(dataList, "admin/category", "POST");
                 });
             } else {
@@ -89,7 +99,6 @@
                         "category_image_src": category_image_src,
                         "propertyList":items
                     };
-                    console.log(dataList);
                     doAction(dataList, "admin/category/" + category_id, "PUT");
                 });
             }
