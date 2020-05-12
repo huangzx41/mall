@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
     <script>
         $(function () {
-        	 $('a').click(function () {
-        		 $(this).parent().remove();
-             })
             if ($("#details_category_id").val() === "") {
                 /******
                  * event
@@ -212,10 +209,13 @@
                 }
             });
         }
+        function dodelete(ob){
+        	 $(ob).parent().remove();
+        }
         function addItems(){
         	var item='<div class="has-feedback" style="width: 330px">'+
                        '<input class="form-control"  id="input_category_property" type="text" maxlength="50" value="" data-pvid=""/>'+
-                      ' <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a> '+       
+                      ' <a onclick="dodelete(this)" class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a> '+       
                        '<div class="br"></div>'+
                       '</div>';
            $("#appendBody").append(item);            
@@ -289,7 +289,7 @@
                     <input class="form-control"  id="input_category_property_${property.property_id}" type="text"
                            maxlength="50" value="${property.property_name}"
                            data-pvid="${property.property_id}"/>
-                  <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>          
+                  <a onclick="dodelete(this)" class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>          
                     <div class="br"></div>
                  </div>
         </c:forEach>
@@ -300,7 +300,7 @@
              <input class="form-control"  id="input_category_property" type="text"
                     maxlength="50" value=""
                     data-pvid=""/>
-           <a class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>          
+           <a onclick="dodelete(this)" class="glyphicon glyphicon-remove btn form-control-feedback"style="pointer-events: auto"></a>          
              <div class="br"></div>
           </div>
     </c:if>
