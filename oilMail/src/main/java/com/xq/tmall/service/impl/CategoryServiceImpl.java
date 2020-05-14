@@ -17,6 +17,8 @@ import com.xq.tmall.service.CategoryService;
 import com.xq.tmall.service.PropertyService;
 import com.xq.tmall.util.PageUtil;
 
+import cn.hutool.core.collection.CollectionUtil;
+
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
 
@@ -35,12 +37,14 @@ public class CategoryServiceImpl implements CategoryService {
 	public Integer add(Category category) {
 		categoryMapper.insertOne(category);
 		List<Property> propertyList = category.getPropertyList();
-		propertyList.forEach(a -> {
-			if (StringUtils.isNoneBlank(a.getProperty_name())) {
-				a.setProperty_category_id(category.getCategory_id());
-				propertyService.add(a);
-			}
-		});
+		if (CollectionUtil.isNotEmpty(propertyList)) {
+			propertyList.forEach(a -> {
+				if (StringUtils.isNoneBlank(a.getProperty_name())) {
+					a.setProperty_category_id(category.getCategory_id());
+					propertyService.add(a);
+				}
+			});
+		}
 		return category.getCategory_id();
 	}
 

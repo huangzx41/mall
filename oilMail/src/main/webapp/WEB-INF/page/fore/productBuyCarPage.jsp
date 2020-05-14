@@ -50,7 +50,7 @@
         <div class="shopSearchHeader">
             <form action="${pageContext.request.contextPath}/product" method="get">
                 <div class="shopSearchInput">
-                    <input type="text" class="searchInput" name="product_name" placeholder="搜索 天猫 商品/品牌/店铺"
+                    <input type="text" class="searchInput" name="product_name" placeholder="搜索  商品/品牌/店铺"
                            value="${requestScope.searchValue}" maxlength="50">
                     <input type="submit" value="搜 索" class="searchBtn">
                 </div>
@@ -69,8 +69,8 @@
     <c:choose>
         <c:when test="${fn:length(requestScope.orderItemList)<=0}">
             <div id="crumbs">
-                <span class="cart-tip">购物车帮您一次性完成批量购买与付款，下单更便捷，付款更简单！<a
-                        href="http://service.taobao.com/support/help-11746.htm?spm=a1z0d.1.0.0.ogEwpx" target="_blank">如何使用购物车</a></span>
+                <span class="cart-tip">购物车帮您一次性完成批量购买与付款，下单更便捷，付款更简单！<!-- <a
+                        href="http://service.taobao.com/support/help-11746.htm?spm=a1z0d.1.0.0.ogEwpx" target="_blank">如何使用购物车</a> --></span>
             </div>
             <div id="empty">
                 <h2>您的购物车还是空的，赶紧行动吧！您可以：</h2>
